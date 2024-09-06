@@ -1021,7 +1021,7 @@ GameObject:
   - component: {fileID: 61647861051322366}
   - component: {fileID: 114822674872780082}
   m_Layer: 0
-  m_Name: Rigeleuse
+  m_Name: Rigel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

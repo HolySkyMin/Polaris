@@ -20,7 +20,7 @@ public class LobbyManager : MonoBehaviour
 
     void Awake()
     {
-        charPicker.LoadCharacter();
+        charPicker.LoadCharacter(new List<int>(){1, 13, 23});
         
         sdchara = GameObject.Find("Characters").gameObject; 
         
@@ -57,6 +57,11 @@ public class LobbyManager : MonoBehaviour
 
         foreach (var idx in Variables.LobbyCharList)
         {
+            // Temporary fallback.
+            // 레굴루스, 아크투루스는 SD모델이 없습니다.
+            if (idx == 13 || idx == 23)
+                continue;
+            
             var c = Variables.Characters[idx];
 
             var prefabName = c.InternalName.Substring(0, 1).ToUpper() + c.InternalName.Substring(1);

@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 61063085927713088}
   - component: {fileID: 114086414031774390}
   m_Layer: 0
-  m_Name: Spika
+  m_Name: Spica
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

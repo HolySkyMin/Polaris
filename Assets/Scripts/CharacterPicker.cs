@@ -17,7 +17,7 @@ public class CharacterPicker : MonoBehaviour
 	List<CharacterPickerElement> objList;
 	Dictionary<int, int> charObjLinker;
 
-	public void LoadCharacter(bool includePolaris = false)
+	public void LoadCharacter(List<int> excludeIndex)
 	{
 		objList = new List<CharacterPickerElement>();
 		charObjLinker = new Dictionary<int, int>();
@@ -25,7 +25,7 @@ public class CharacterPicker : MonoBehaviour
 		// Once per scene load
 		foreach(var character in Variables.Characters)
 		{
-			if (character.Key == 1 && !includePolaris)
+			if (excludeIndex.Contains(character.Key))
 				continue;
 			
 			var newObj = Instantiate(charTemplate);

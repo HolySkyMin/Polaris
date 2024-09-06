@@ -1126,7 +1126,7 @@ GameObject:
   - component: {fileID: 61277417168345740}
   - component: {fileID: 114062397163297168}
   m_Layer: 0
-  m_Name: Pine
+  m_Name: Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

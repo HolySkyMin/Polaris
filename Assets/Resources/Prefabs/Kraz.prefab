@@ -843,7 +843,7 @@ GameObject:
   - component: {fileID: 61872042790359088}
   - component: {fileID: 114276543180163538}
   m_Layer: 0
-  m_Name: Craz
+  m_Name: Kraz
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

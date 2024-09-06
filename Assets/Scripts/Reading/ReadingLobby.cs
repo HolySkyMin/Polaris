@@ -23,10 +23,18 @@ namespace Reading
 		// Use this for initialization
 		void Start()
 		{
-			picker.LoadCharacter(!SaveData.Now.tutorialFinished);
+			var exclude = new List<int>() { 32 };
+			if (SaveData.Now.tutorialFinished)
+				exclude.Add(1);
+			picker.LoadCharacter(exclude);
 			diary.ConstructDiary();
 
-			LoadSelectedCharacter(new List<int>{SaveData.Now.lastObservedChar});
+			// Temporary fallback.
+			// 애초에 여기 로직이 왜 이렇게 되어 있는지...?
+			if (SaveData.Now.lastObservedChar == 32)
+				LoadSelectedCharacter(new List<int>{2});
+			else
+				LoadSelectedCharacter(new List<int>{SaveData.Now.lastObservedChar});
 
             if (!Variables.TutorialFinished)
                 tutorialObj.SetActive(true);
