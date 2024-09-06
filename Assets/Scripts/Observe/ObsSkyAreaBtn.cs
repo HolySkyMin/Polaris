@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 namespace Observe
@@ -9,6 +10,7 @@ namespace Observe
 	{
 		public int index;
 		public int price;
+		public int memorialPrice;
 		[TextArea] public string openRule;
 		public Text priceLabel;
 		public Text openRuleLabel;
@@ -31,15 +33,22 @@ namespace Observe
 
 		IEnumerator Clicked_Routine()
 		{
-			yield return MessageSet.Now.ShowMoneySpendAsk("해당 구역을 개방할까요?", MoneyType.Starlight, price, result =>
+			yield return MessageSet.Now.ShowMoneySpendAsk("해당 구역을 개방할까요?", price, memorialPrice, result =>
 			{
 				if (result)
 				{
-					var payed = GameManager.Instance.PayMoney(MoneyType.Starlight, price);
-					if (payed)
+					var starlightPayed = GameManager.Instance.PayMoney(MoneyType.Starlight, price);
+					var memorialPayed = GameManager.Instance.PayMoney(MoneyType.MemorialPiece, memorialPrice);
+					if (starlightPayed && memorialPayed)
 						manager.UnlockSky(index);
 					else
-						MessageSet.Now.ShowNoMoneyAlert(MoneyType.Starlight);
+					{
+						if (!starlightPayed)
+							MessageSet.Now.ShowNoMoneyAlert(MoneyType.Starlight);
+						else
+							MessageSet.Now.ShowNoMoneyAlert(MoneyType.MemorialPiece);
+					}
+						
 				}
 			});
 		}

@@ -6,6 +6,8 @@
 		_Color ("Color", COLOR) = (0, 0, 0, 1)
 		_Width ("Width", float) = 1080
 		_Height ("Height", float) = 1920
+		_MaxUVWidth ("Max UV Width", float) = 1
+		_MaxUVHeight ("Max UV Height", float) = 1
 	}
 	SubShader
 	{
@@ -38,6 +40,8 @@
 			float4 _MainTex_ST;
 			float _Width;
 			float _Height;
+			float _MaxUVWidth;
+			float _MaxUVHeight;
 			
 			v2f vert (appdata v)
 			{
@@ -57,7 +61,7 @@
 				{
 					float rawDeltaY = (_Height - (_Width / 9.0 * 16.0)) / 2.0;
 					float clampedDeltaY = rawDeltaY / _Height;
-					if(clampedDeltaY <= i.uv.y && i.uv.y <= 1 - clampedDeltaY)
+					if(_MaxUVHeight * clampedDeltaY <= i.uv.y && i.uv.y <= _MaxUVHeight * (1 - clampedDeltaY))
 					{
 						col.w = 0;
 					}
@@ -66,7 +70,7 @@
 				{
 					float rawDeltaX = (_Width - (_Height / 16.0 * 9.0)) / 2.0;
 					float clampedDeltaX = rawDeltaX / _Width;
-					if(clampedDeltaX <= i.uv.x && i.uv.x <= 1 - clampedDeltaX)
+					if(_MaxUVWidth * clampedDeltaX <= i.uv.x && i.uv.x <= _MaxUVWidth * (1 - clampedDeltaX))
 					{
 						col.w = 0;
 					}

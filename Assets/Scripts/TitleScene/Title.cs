@@ -8,6 +8,7 @@ public class Title : MonoBehaviour {
     public TextMesh TitleText;
     public TextMesh TitleSubText;
     public TextMesh TouchText;
+    public TextMesh VersionText;
 
     private float speed;
     private SpriteRenderer TitleLogo;
@@ -32,6 +33,10 @@ public class Title : MonoBehaviour {
         TitleText.color = new Color(1, 1, 1, 0);
         TitleSubText.color = new Color(1, 1, 1, 0);
         TouchText.color = new Color(1, 1, 1, 0);
+        VersionText.color = new Color(1, 1, 1, 0);
+
+        // Get version
+        VersionText.text = $"Version {Application.version}";
 
         SoundManager.Play(SoundType.BgmTitle);
     }
@@ -58,6 +63,7 @@ public class Title : MonoBehaviour {
                 TitleText.color = new Color(1, 1, 1, 1);
                 TitleSubText.color = new Color(1, 1, 1, 1);
                 TouchText.color = new Color(1, 1, 1, 1);
+                VersionText.color = new Color(1, 1, 1, 1);
             }
             else if (TitleText.color.a < 1)
             {

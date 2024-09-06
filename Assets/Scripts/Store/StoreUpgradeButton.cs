@@ -62,7 +62,7 @@ namespace Store
             else
             {
                 var accepted = false;
-                yield return MessageSet.Now.ShowMoneySpendAsk(payContext, MoneyType.Starlight, price, r => { accepted = r; });
+                yield return MessageSet.Now.ShowMoneySpendAsk(payContext, price, 0, r => { accepted = r; });
                 if (accepted)
                 {
                     GameManager.Instance.PayMoney(MoneyType.Starlight, price);

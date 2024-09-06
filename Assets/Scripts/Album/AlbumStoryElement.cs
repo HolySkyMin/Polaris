@@ -75,7 +75,7 @@ namespace Album
             else
             {
                 var accepted = false;
-                yield return MessageSet.Now.ShowMoneySpendAsk("스토리를 개방하시겠습니까?", MoneyType.MemorialPiece,
+                yield return MessageSet.Now.ShowMoneySpendAsk("스토리를 개방하시겠습니까?", 0,
                     unlockPrice, r => { accepted = r; });
                 if (accepted)
                 {

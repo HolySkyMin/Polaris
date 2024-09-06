@@ -472,7 +472,7 @@ namespace Observe
         {
             var cost = TimeConfirmBtn[obsTimeIndex - 1].GetComponentInParent<ObserveTimeButton>().SpendMoney;
             bool res = false;
-            yield return MessageSet.Now.ShowMoneySpendAsk("관측을 시작하시겠습니까?", MoneyType.Starlight, cost, result => { res = result;});
+            yield return MessageSet.Now.ShowMoneySpendAsk("관측을 시작하시겠습니까?", cost, 0, result => { res = result;});
             if (res)
             {
                 var payed = GameManager.Instance.PayMoney(MoneyType.Starlight, cost);
@@ -537,7 +537,7 @@ namespace Observe
         {
             var cost = Variables.values.fastCompleteCost[status.timeIndex];
             bool res = false;
-            yield return MessageSet.Now.ShowMoneySpendAsk("관측을 즉시 완료하시겠습니까?", MoneyType.Starlight, cost, result => { res = result;});
+            yield return MessageSet.Now.ShowMoneySpendAsk("관측을 즉시 완료하시겠습니까?", cost, 0, result => { res = result;});
             if (res)
             {
                 var payed = GameManager.Instance.PayMoney(MoneyType.Starlight, cost);
