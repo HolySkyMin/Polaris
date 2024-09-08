@@ -22,7 +22,8 @@ namespace Observe
 			if (!charData.Observed)
 			{
 				charData.Observed = true;
-				if (Variables.LobbyCharList.Count < Variables.GetStoreValue(2))
+				// 레굴루스, 아크투루스는 로비 화면에 편성할 수 없음
+				if (Variables.LobbyCharList.Count < Variables.GetStoreValue(2) && charKey != 13 && charKey != 23)
 					Variables.LobbyCharList.Add(charKey);
 			}
 

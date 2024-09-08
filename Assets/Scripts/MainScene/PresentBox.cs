@@ -1,18 +1,13 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
 
-public class PresentBox : MonoBehaviour, IPointerDownHandler
+public class PresentBox : MonoBehaviour
 {
 	public GameObject balloon;
 	//public GameObject starGetEffect;
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        
-    }
 
     private void OnMouseDown()
     {

@@ -53,6 +53,9 @@ public class CharacterPicker : MonoBehaviour
 		}
 		foreach (var charIndex in prePickedChars)
 		{
+			if (!charObjLinker.ContainsKey(charIndex))
+				continue;
+			
 			pickedCharList.Add(charIndex);
 			//objList[charObjLinker[charIndex]].toggledByCode = true;
 			objList[charObjLinker[charIndex]].picked = true;
